@@ -21,6 +21,9 @@ alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias update='sudo apt update -y; sudo apt upgrade -y; sudo apt autoremove -y'
+alias ins='sudo apt install -y'
+alias rem='sudo apt autoremove --purge -y'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
