@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+rm "$HOME/.bashrc" 2>/dev/null
+ln -sf "$(pwd)/dot_bashrc" "$HOME/.bashrc"
