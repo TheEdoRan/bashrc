@@ -14,25 +14,6 @@ shopt -s checkwinsize
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias _vim='vim'
-alias vim='nvim'
-alias update='yay -Syu --noconfirm'
-alias ins='sudo pacman -S'
-alias rem='sudo pacman -Rns'
-alias yins='yay -S'
-alias yrem='yay -Rns'
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -41,7 +22,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-LS_COLORS=$LS_COLORS:'ow=1;34:'
+LS_COLORS="ow=1;32:di=1;32"
 export LS_COLORS
 
 RESET='\033[0m'
@@ -74,6 +55,26 @@ function git_color {
     echo -e $OCHRE
   fi
 }
+
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias _vim='vim'
+alias vim='nvim'
+alias update='yay -Syu --noconfirm'
+alias ins='sudo pacman -S'
+alias rem='sudo pacman -Rns'
+alias yins='yay -S'
+alias yrem='yay -Rns'
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 function git_branch {
   local git_status="$(git status 2> /dev/null)"
