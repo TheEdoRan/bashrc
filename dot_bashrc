@@ -42,20 +42,6 @@ LPURPLE='\033[01;35m'
 LCYAN='\033[01;36m'
 WHITE='\033[01;37m'
 
-function git_color {
-  local git_status="$(git status 2> /dev/null)"
-
-  if [[ ! $git_status =~ "working tree clean" ]]; then
-    echo -e $RED
-  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-    echo -e $YELLOW
-  elif [[ $git_status =~ "nothing to commit" ]]; then
-    echo -e $GREEN
-  else
-    echo -e $OCHRE
-  fi
-}
-
 # Aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -75,6 +61,20 @@ alias yrem='yay -Rns'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+function git_color {
+  local git_status="$(git status 2> /dev/null)"
+
+  if [[ ! $git_status =~ "working tree clean" ]]; then
+    echo -e $RED
+  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    echo -e $YELLOW
+  elif [[ $git_status =~ "nothing to commit" ]]; then
+    echo -e $GREEN
+  else
+    echo -e $OCHRE
+  fi
+}
 
 function git_branch {
   local git_status="$(git status 2> /dev/null)"
