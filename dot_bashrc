@@ -21,9 +21,13 @@ alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias update='sudo apt update -y; sudo apt upgrade -y; sudo apt autoremove -y'
-alias ins='sudo apt install -y'
-alias rem='sudo apt autoremove --purge -y'
+alias _vim='vim'
+alias vim='nvim'
+alias update='yay -Syu --noconfirm'
+alias ins='sudo pacman -S'
+alias rem='sudo pacman -Rns'
+alias yins='yay -S'
+alias yrem='yay -Rns'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
