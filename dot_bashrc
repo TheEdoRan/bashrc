@@ -43,20 +43,25 @@ LCYAN='\033[01;36m'
 WHITE='\033[01;37m'
 
 # Aliases
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias _vim='vim'
-alias vim='nvim'
+alias ls="exa --icons --git"
+alias la="exa --icons --git -a"
+alias ll="exa --icons --git -l"
+alias lla="exa --icons --git -la"
+alias _ls="/usr/bin/ls --color=auto"
+alias vim="nvim"
+alias _vim="/usr/bin/vim"
 alias update="sudo pacman -Fy; sudo pkgfile --update; yay -Syu --sudoloop --noconfirm; nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'; echo 'Update completed :)'; sleep 2"
-alias ins='sudo pacman -S'
-alias rem='sudo pacman -Rns'
-alias yins='yay -S'
-alias yrem='yay -Rns'
+alias ins="sudo pacman -S"
+alias rem="sudo pacman -Rns"
+alias yins="yay -S"
+alias yrem="yay -Rns"
+alias ga="git add"
+alias gd="git diff"
+alias gs="git status -s"
+alias gc="git commit -m"
+alias gl="git log --oneline"
+alias gp="git push"
+alias gri="git rebase -i"
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -93,5 +98,5 @@ function git_branch {
 PS1="\[$CYAN\]\W"
 PS1+="\[\$(git_color)\]"
 PS1+="\$(git_branch)"
-PS1+=" \[$PURPLE\]\$\[$RESET\] "
+PS1+=" \[$PURPLE\]❯\[$RESET\] "
 export PS1
