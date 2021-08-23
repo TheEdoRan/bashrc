@@ -111,5 +111,5 @@ function git_branch {
 PS1="\[$YELLOW\]\u\[$PURPLE\]@\[$GREEN\]\h \[$CYAN\]\W"
 PS1+="\[\$(git_color)\]"
 PS1+="\$(git_branch)"
-PS1+=" \[$PURPLE\]❯\[$RESET\] "
+PS1+=" \[$PURPLE\]$\[$RESET\] "
 export PS1
