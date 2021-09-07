@@ -37,41 +37,19 @@ CYAN='\033[00;36m'
 WHITE='\033[01;37m'
 
 # Aliases
+alias ls='ls --color=auto'
+alias ll='ls -AlF'
+alias la='ls -A'
+alias lla='ls -lFA'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias vim="nvim"
-alias _vim="/usr/bin/vim"
-alias ga="git add"
-alias gd="git diff"
-alias gs="git status -s"
-alias gc="git commit -m"
-alias gf="git fetch"
-alias gclo="git clone"
-alias gcln="git clean -dfx"
-alias gl="git log --oneline"
-alias gp="git push"
-alias gri="git rebase -i"
-
-# Check if exa is installed
-if command -v exa &>/dev/null; then
-  alias ls="exa --icons --git"
-  alias la="exa --icons --git -a"
-  alias ll="exa --icons --git -l"
-  alias lla="exa --icons --git -la"
-  alias _ls="/usr/bin/ls --color=auto"
-else
-  alias ls='ls --color=auto'
-  alias ll='ls -AlF'
-  alias la='ls -A'
-  alias lla='ls -lFA'
-fi
 
 OS_NAME="$(cat /etc/os-release 2>/dev/null | grep -e '^NAME=')"
 
 # Check if we're on Arch or Ubuntu and set up aliases accordingly based on OS
 if [[ "${OS_NAME}" =~ "Arch Linux" ]]; then
-  alias update="sudo pacman -Fy; sudo pkgfile --update; yay -Syu --sudoloop --noconfirm; nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'; echo 'Update completed :)'; sleep 2"
+  alias update="sudo pacman -Syu"
   alias ins="sudo pacman -S"
   alias rem="sudo pacman -Rns"
   alias yins="yay -S"
